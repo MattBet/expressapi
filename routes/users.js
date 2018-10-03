@@ -23,7 +23,7 @@ router.route('/:id')
 router.route('/:id/posts')
     .get(validateParam(schemas.idSchema, 'id'), UsersController.getUserPosts)
     .post([validateParam(schemas.idSchema, 'id'),
-           validateBody(schemas.postSchema)],
+           validateBody(schemas.userPostSchema)],
            UsersController.newUserPost);
 
 module.exports = router;
