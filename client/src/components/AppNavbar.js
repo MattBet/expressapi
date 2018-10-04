@@ -7,10 +7,6 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
 } from 'reactstrap';
 
 class AppNavbar extends Component{
@@ -27,7 +23,7 @@ class AppNavbar extends Component{
     render() {
         return (
             <div>
-                <Navbar color="dark" dark expand>
+                <Navbar className="mb-5" color="dark" dark expand>
                     <NavbarBrand href="/">MERN</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
