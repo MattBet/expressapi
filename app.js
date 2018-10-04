@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 // Connection to DB
-mongoose.connect('mongodb://localhost/apiexpress', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/apiexpress', { useNewUrlParser: true,
+                                                     useCreateIndex: true });
 mongoose.Promis = global.Promise;
 
 const app = express();

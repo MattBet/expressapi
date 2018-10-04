@@ -13,7 +13,7 @@ router.route('/signup')
           AuthController.signUp);
 
 router.route('/signin')
-    .post(AuthController.signIn);
+    .post(validateBody(schemas.authSchema), passport.authenticate('local', { session: false }), AuthController.signIn);
 
 router.route('/secret')
     .get(passport.authenticate('jwt', { session: false }), AuthController.secret);
