@@ -25,5 +25,4 @@ router.route('/:id/posts')
     .post([validateParam(schemas.idSchema, 'id'),
            validateBody(schemas.userPostSchema)],
            UsersController.newUserPost);
-
 module.exports = router;

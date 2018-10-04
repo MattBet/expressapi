@@ -1,8 +1,6 @@
 const User = require('../models/user');
 const Post = require('../models/post');
 
-const Joi = require('joi');
-
 module.exports = {
     // Validation: DONE
     index: async (req, res, next) => {
@@ -72,13 +70,5 @@ module.exports = {
         // Save the user
         await user.save();
         res.status(201).json(newPost);
-    }
+    },
 };
-
-/*
-
-1) Callbacks
-2) Promises
-3) [X] Async/Await (Promises)
-
- */

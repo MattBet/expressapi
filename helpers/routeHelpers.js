@@ -74,7 +74,14 @@ module.exports = {
 
       idSchema: Joi.object().keys({
       param: Joi.string().regex(/^[0-9a-fA-F]{24}$/).required()
-    })
+    }),
+
+      authSchema: Joi.object().keys({
+          firstName: Joi.string(),
+          lastName: Joi.string(),
+          email: Joi.string().email().required(),
+          password: Joi.string().required()
+      })
 
   }
 };

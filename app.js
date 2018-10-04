@@ -2,31 +2,36 @@ const express = require('express');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const path = require('path');
+
+require('dotenv').config();
 
 // Connection to DB
 mongoose.connect('mongodb://localhost/apiexpress', { useNewUrlParser: true });
+mongoose.Promis = global.Promise;
 
 const app = express();
 
 // Load View Engine
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // Set Public Folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
-// Routes
+// Initialize Routes
 const users = require('./routes/users');
 const posts = require('./routes/posts');
+const index = require('./routes/index');
+const auth = require('./routes/auth');
 
 // Middlewares
 app.use(logger("dev"));
 app.use(bodyParser.json());
 
 // Routes
+app.use('/', index);
 app.use('/users', users);
 app.use('/posts', posts);
+app.use('/auth', auth);
 
 // Catch 404 Errors and forward them to error handler
 app.use((req, res, next) => {
