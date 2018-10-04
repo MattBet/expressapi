@@ -81,7 +81,19 @@ module.exports = {
           lastName: Joi.string(),
           email: Joi.string().email().required(),
           password: Joi.string().required()
-      })
+      }),
+
+      productSchema: Joi.object().keys({
+          name: Joi.string().required(),
+      }),
+
+      putProductSchema: Joi.object().keys ({
+          name: Joi.string().required(),
+      }),
+
+      patchProductSchema: Joi.object().keys ({
+          name: Joi.string(),
+      }),
 
   }
 };

@@ -2,7 +2,7 @@ const Post = require('../models/post');
 const User = require('../models/user');
 
 module.exports = {
-    // Validation : PENDING
+    // Validation : DONE
     index: async (req, res, next) => {
         const posts = await Post.find({});
         res.status(200).json(posts);
@@ -10,7 +10,6 @@ module.exports = {
 
     // Validation : DONE
     newPost: async (req, res, next) => {
-        console.log(req.value);
         // Find current user/author
         const author = await User.findById(req.value.body.author);
 
@@ -77,7 +76,6 @@ module.exports = {
         await author.save();
 
         res.status(200).json({ success: true});
-
 
         console.log(post);
     }

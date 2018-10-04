@@ -1,18 +1,21 @@
 {
-  "name": "secondproject",
+  "name": "apiexpress",
   "version": "1.0.0",
-  "description": "",
+  "description": "MERN Stack",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "client-install": "npm install --prefix client",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "",
+  "author": "Mattis BETOURNE",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
-    "bower": "^1.8.4",
+    "concurrently": "^4.0.1",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-promise-router": "^3.0.3",

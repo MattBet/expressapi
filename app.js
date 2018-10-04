@@ -21,18 +21,18 @@ app.use(express.static('public'));
 // Initialize Routes
 const users = require('./routes/users');
 const posts = require('./routes/posts');
-const index = require('./routes/index');
 const auth = require('./routes/auth');
+const products = require('./routes/products');
 
 // Middlewares
 app.use(logger("dev"));
 app.use(bodyParser.json());
 
 // Routes
-app.use('/', index);
 app.use('/users', users);
 app.use('/posts', posts);
 app.use('/auth', auth);
+app.use('/products', products);
 
 // Catch 404 Errors and forward them to error handler
 app.use((req, res, next) => {
@@ -58,5 +58,5 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-const port = app.get('port') || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}`));
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server started on port ${port}`));
